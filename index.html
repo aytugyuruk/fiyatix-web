@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiyatix - Fiyat Karşılaştırmanın En Kolay Yolu</title>
+    <meta name="description" content="Fiyatix ile en iyi fiyatları bulun, alışverişlerinizde tasarruf edin.">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <!-- Preload kritik kaynaklar -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="https://unpkg.com/aos@next/dist/aos.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="https://unpkg.com/aos@next/dist/aos.js" as="script">
+    <link rel="preload" href="images/logo.png" as="image">
+    
+    <!-- Tailwind CSS (production minified) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Font Awesome (Subset) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="fixed w-full bg-white bg-opacity-90 backdrop-blur-sm shadow-sm z-50 h-16" id="header">
+        <div class="container mx-auto px-4 py-1 flex justify-between items-center h-full">
+            <a href="#" class="flex items-center gap-2">
+                <img src="images/logo.png" alt="Fiyatix Logo" class="h-15" width="55" height="55">
+                <span class="text-2xl font-bold text-blue-600">Fiyatix</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#features" class="nav-link">Özellikler</a>
+                <a href="#how-it-works" class="nav-link">Nasıl Çalışır</a>
+                <a href="#download" class="nav-link">İndir</a>
+                <a href="#faq" class="nav-link">SSS</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <a href="#download" class="hidden md:flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300">
+                    <i class="fas fa-download"></i> Hemen İndir
+                </a>
+                <button id="menu-toggle" class="md:hidden text-blue-600 text-2xl" aria-label="Menüyü aç/kapa">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white hidden">
+            <nav class="container mx-auto px-4 py-4 flex flex-col gap-4">
+                <a href="#features" class="nav-link-mobile">Özellikler</a>
+                <a href="#how-it-works" class="nav-link-mobile">Nasıl Çalışır</a>
+                <a href="#download" class="nav-link-mobile">İndir</a>
+                <a href="#faq" class="nav-link-mobile">SSS</a>
+                <a href="#download" class="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition duration-300">
+                    <i class="fas fa-download"></i> Hemen İndir
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-4 py-16">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2" data-aos="fade-right" data-aos-once="true">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-blue-600">Alışverişin Akıllı Asistanı</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-700">En İyi Fiyatları Anında Karşılaştırın</h2>
+                    <p class="text-lg text-gray-600 mb-8">Fiyatix ile zincir marketler arasında anında fiyat karşılaştırması yapın, kampanyaları takip edin ve akıllı alışverişin keyfini çıkarın.</p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#download" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold transition duration-300">
+                            <i class="fas fa-download"></i> Uygulamayı İndir
+                        </a>
+                        <a href="#how-it-works" class="flex items-center gap-2 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-full text-lg font-semibold transition duration-300">
+                            <i class="fas fa-info-circle"></i> Nasıl Çalışır ?
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 relative" data-aos="fade-left" data-aos-delay="200" data-aos-once="true">
+                    <div class="relative z-10">
+                        <img src="images/phone-mockup.png" alt="Fiyatix App Screenshot" class="mx-auto max-w-full h-auto" width="350" height="700" loading="eager">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <img src="images/screenshot4.png" alt="Fiyatix Uygulaması" class="w-[60%] rounded-3xl shadow-2xl" width="250" height="500" loading="eager">
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-400 rounded-full filter blur-3xl opacity-20"></div>
+                    <div class="absolute -top-10 -left-10 w-72 h-72 bg-purple-400 rounded-full filter blur-3xl opacity-20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-once="true">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-blue-600">Neden Fiyatix?</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Fiyat karşılaştırma ve akıllı alışveriş deneyimini bir üst seviyeye taşıyoruz.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card" data-aos="zoom-in" data-aos-once="true">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Anında Karşılaştırma</h3>
+                    <p class="text-gray-600">Zincir marketlerdeki ürün fiyatlarını saniyeler içinde karşılaştırın.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="zoom-in" data-aos-once="true" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fiyat Alarmları</h3>
+                    <p class="text-gray-600">İstediğiniz ürünlerin fiyatı düştüğünde anında bildirim alın.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="zoom-in" data-aos-once="true" data-aos-delay="150">
+                    <div class="feature-icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Kupon ve İndirimler</h3>
+                    <p class="text-gray-600">Size özel kuponları ve kampanyaları kaçırmadan yakalayın.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="zoom-in" data-aos-once="true">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fiyat Geçmişi</h3>
+                    <p class="text-gray-600">Ürünlerin zaman içindeki fiyat değişimlerini grafikle takip edin.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="zoom-in" data-aos-once="true" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Barkod Tarama</h3>
+                    <p class="text-gray-600">Ürün barkodlarını tarayarak anında fiyat bilgisi alın.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="zoom-in" data-aos-once="true" data-aos-delay="150">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Güvenilir Satıcılar</h3>
+                    <p class="text-gray-600">Tüm satıcılar detaylı olarak inceleniyor ve puanlanıyor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-once="true">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-blue-600">Nasıl Çalışır ?</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Fiyatix ile akıllı alışveriş yapmanın 3 basit adımı</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 order-2 md:order-1" data-aos="fade-right" data-aos-once="true">
+                    <div class="steps-container">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3 class="text-xl font-bold mb-2">İstediğiniz Ürünü Seçin</h3>
+                                <p class="text-gray-600">Arama kutusuna ürün adını yazın veya kategoriler sekmesinden kolayca ürün seçin.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3 class="text-xl font-bold mb-2">Fiyatları Karşılaştırın</h3>
+                                <p class="text-gray-600">Farklı marketlerdeki fiyatları görün.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3 class="text-xl font-bold mb-2">En Ucuz Sepeti Oluşturun</h3>
+                                <p class="text-gray-600">Seçtiğiniz ürünler için en uygun sepet sizin için otomatik olarak oluşturulur.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 order-1 md:order-2" data-aos="fade-left" data-aos-once="true" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="images/phone-mockup.png" alt="Fiyatix App Screenshots" class="mx-auto max-w-full h-auto" width="350" height="700" loading="lazy">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <img src="images/screenshot2.png" alt="Fiyatix Uygulama Ekranı" class="w-[60%] rounded-3xl shadow-2xl" width="250" height="500" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-16 bg-white relative">
+        <div class="container mx-auto px-4">
+            <div class="max-w-lg mx-auto text-center">
+                <div class="flex flex-col items-center justify-center space-y-10">
+                    <div class="w-20 h-1 bg-blue-600 rounded-full"></div>
+                    
+                    <div class="store-buttons flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <a href="#" class="download-button app-store">
+                            <span class="sr-only">App Store'dan İndirin (Yakında)</span>
+                            <div class="flex items-center gap-3 bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-xl transition-all">
+                                <i class="fab fa-apple text-3xl"></i>
+                                <div class="text-left">
+                                    <div class="text-xs opacity-80">İndirin</div>
+                                    <div class="text-base font-medium">App Store <span class="text-xs opacity-80">(Yakında)</span></div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="download-button google-play">
+                            <span class="sr-only">Google Play'den İndirin (Yakında)</span>
+                            <div class="flex items-center gap-3 bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-xl transition-all">
+                                <i class="fab fa-google-play text-3xl"></i>
+                                <div class="text-left">
+                                    <div class="text-xs opacity-80">İndirin</div>
+                                    <div class="text-base font-medium">Google Play <span class="text-xs opacity-80">(Yakında)</span></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-once="true">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-blue-600">Sıkça Sorulan Sorular</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Merak ettiğiniz soruların cevaplarını burada bulabilirsiniz</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-container" data-aos="fade-up" data-aos-once="true">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 class="text-xl font-semibold">Fiyatix tamamen ücretsiz mi?</h3>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet, Fiyatix uygulaması tamamen ücretsizdir. Hiçbir gizli ücret veya abonelik bulunmamaktadır.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 class="text-xl font-semibold">Hangi mağazaları destekliyorsunuz?</h3>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Türkiye'deki en büyük 5 zincir marketi destekliyoruz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 class="text-xl font-semibold">En Ucuz Sepeti Nasıl Oluşturabilirim?</h3>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sepetim menüsündeki en ucuz sepeti oluştur butonuna tıklayarak en ucuz sepetinizi oluşturabilirsiniz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 class="text-xl font-semibold">Fiyatlar ne sıklıkla güncellenir?</h3>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Fiyatlar her gün olmak üzere günde 1 kez güncellenir.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 class="text-xl font-semibold">Ürün yorumları güvenilir mi?</h3>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet, uygulamadaki tüm yorumlar gerçek kullanıcılardan gelen doğrulanmış yorumlardır. Yapay yorumları engellemek için sıkı denetim süreçleri uyguluyoruz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="images/logo.png" alt="Fiyatix Logo" class="h-8" width="32" height="32" loading="lazy">
+                        <span class="text-xl font-bold text-blue-400">Fiyatix</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">Alışverişlerinizde en iyi fiyatı bulmak için akıllı asistanınız. Zincir marketlerdeki binlerce ürün arasında anında karşılaştırma yapın.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/i2.software/" target="_blank" rel="noopener" class="text-gray-300 hover:text-blue-400 text-xl" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/i-2-software/?viewAsMember=true" target="_blank" rel="noopener" class="text-gray-300 hover:text-blue-400 text-xl" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-blue-400">Bağlantılar</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-300 hover:text-white transition">Özellikler</a></li>
+                        <li><a href="#how-it-works" class="text-gray-300 hover:text-white transition">Nasıl Çalışır</a></li>
+                        <li><a href="#download" class="text-gray-300 hover:text-white transition">İndir</a></li>
+                        <li><a href="#faq" class="text-gray-300 hover:text-white transition">SSS</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-blue-400">İletişim</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope text-blue-400"></i>
+                            <a href="mailto:appfiyatix@gmail.com" class="text-gray-300 hover:text-white transition">appfiyatix@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone text-blue-400"></i>
+                            <a href="tel:+902123456789" class="text-gray-300 hover:text-white transition">+90 (505) 971 23 54</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-blue-400"></i>
+                            <span class="text-gray-300">İstanbul, Türkiye</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Fiyatix. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html> 

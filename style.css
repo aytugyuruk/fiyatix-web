@@ -1,0 +1,291 @@
+/* Base Styles - Optimize edilmiş */
+:root {
+    --primary-color: #2563eb; /* blue-600 */
+    --primary-dark: #1d4ed8; /* blue-700 */
+    --primary-light: #3b82f6; /* blue-500 */
+    --secondary-color: #6366f1; /* indigo-500 */
+    --text-dark: #1f2937; /* gray-800 */
+    --text-light: #9ca3af; /* gray-400 */
+    --bg-light: #f9fafb; /* gray-50 */
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Navigation - Transition süresini minimize et */
+.nav-link {
+    position: relative;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.2s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link-mobile {
+    display: block;
+    padding: 0.75rem 0;
+    font-weight: 500;
+    color: var(--text-dark);
+    border-bottom: 1px solid #eee;
+    transition: color 0.2s, padding-left 0.2s;
+}
+
+.nav-link-mobile:hover {
+    color: var(--primary-color);
+    padding-left: 0.5rem;
+}
+
+/* Scroll Header - will-change ekleyerek GPU kullanımı iyileştiriliyor */
+#header {
+    will-change: transform, opacity;
+    height: 60px; /* Sabit yükseklik */
+    display: flex;
+    align-items: center;
+}
+
+/* Feature Cards - transform özelliği hafifletildi */
+.feature-card {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
+    height: 100%;
+    will-change: transform;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* How It Works Steps - daha hızlı yüklenmesi için optimize */
+.steps-container {
+    position: relative;
+}
+
+.steps-container::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    bottom: 2rem;
+    left: 1.5rem;
+    width: 2px;
+    background-color: #e5e7eb;
+    z-index: 0;
+}
+
+.step-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.step-number {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+    z-index: 1;
+    position: relative;
+}
+
+.step-content {
+    padding-top: 0.25rem;
+    flex: 1;
+}
+
+/* FAQ Accordion - performans için CSS değişken ve will-change */
+.faq-container {
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.faq-question:hover {
+    background-color: rgba(37, 99, 235, 0.03);
+}
+
+.faq-icon {
+    color: var(--primary-color);
+    transition: transform 0.2s;
+    will-change: transform;
+}
+
+.faq-question.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 1.5rem 1.5rem;
+    max-height: 500px;
+}
+
+/* Animations - performans için daha yavaş ve CPU dostu */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.float-animation {
+    animation: float 8s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Lazy loading için stil */
+img.loaded {
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* İndirme Butonları Modern Stilleri */
+.download-button {
+    display: inline-block;
+    transition: all 0.2s ease;
+    will-change: transform;
+}
+
+.download-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.download-button .fab {
+    opacity: 0.95;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .steps-container::before {
+        left: 1.25rem;
+    }
+    
+    .step-number {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+    
+    .step-item {
+        gap: 1rem;
+    }
+    
+    /* CPU-yoğun animasyonları mobilede devre dışı bırak */
+    .float-animation {
+        animation: none;
+    }
+    
+    /* Mobilde daha hafif box-shadow */
+    .feature-card {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+    
+    .feature-card:hover {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* Print Media Query */
+@media print {
+    body {
+        font-size: 12pt;
+        color: #000;
+    }
+    
+    a {
+        text-decoration: underline;
+        color: #000;
+    }
+    
+    /* Yazıcı için gereksiz öğeleri gizle */
+    .feature-icon, .step-number, button, #header, footer {
+        display: none !important;
+    }
+} 
